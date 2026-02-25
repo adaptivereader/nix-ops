@@ -6,7 +6,7 @@ let
   };
 in
 {
-  inherit (final.jacobi) pog;
+  inherit (final.jacobi) pog __pg __pg_bootstrap __pg_shell;
   inherit (final.kwbauson) better-comma;
   adaptivereader = final.buildEnv {
     name = "adaptivereader";
