@@ -25,6 +25,9 @@ in
       toybox
       typescript
       awscli2
+      oxlint
+      oxfmt
+      tsgolint
     ]) ++
     (with final.nodePackages; [
 
