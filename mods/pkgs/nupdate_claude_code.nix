@@ -15,6 +15,11 @@ pog {
     PACKAGE_NAME="@anthropic-ai/claude-code"
     PACKAGE_NIX="mods/pkgs/claude-code-latest.nix"
 
+    # Platform-specific packages to fetch hashes for
+    PLATFORMS=("darwin-arm64" "darwin-x64" "linux-x64" "linux-arm64")
+    # Corresponding nix system names for sed matching
+    NIX_SYSTEMS=("aarch64-darwin" "x86_64-darwin" "x86_64-linux" "aarch64-linux")
+
     # Get current version from the nix file
     get_current_version() {
       ${sed} -n 's/.*version = "\([^"]*\)".*/\1/p' "$PACKAGE_NIX" | head -1
@@ -25,10 +30,11 @@ pog {
       ${curl} -s "$NPM_REGISTRY_URL/$PACKAGE_NAME/latest" | ${jq} -r '.version'
     }
 
-    # Fetch tarball hash using nix-prefetch-url
-    fetch_tarball_hash() {
+    # Fetch platform-specific tarball hash
+    fetch_platform_hash() {
       local version="$1"
-      local tarball_url="$NPM_REGISTRY_URL/$PACKAGE_NAME/-/claude-code-$version.tgz"
+      local platform="$2"
+      local tarball_url="$NPM_REGISTRY_URL/@anthropic-ai/claude-code-$platform/-/claude-code-$platform-$version.tgz"
       ${nix-prefetch-url} "$tarball_url" 2>/dev/null | tail -1
     }
 
@@ -44,20 +50,33 @@ pog {
     fi
 
     yellow "Update available: $current_version -> $latest_version"
-    green "Fetching tarball hash..."
 
-    new_hash=$(fetch_tarball_hash "$latest_version")
-    if [ -z "$new_hash" ]; then
-      die "Failed to fetch tarball hash for version $latest_version" 1
-    fi
-
-    green "New hash: $new_hash"
-
-    # Update version in the nix file
+    # Update version
     ${sed} -i "s/version = \"$current_version\"/version = \"$latest_version\"/" "$PACKAGE_NIX"
 
-    # Update hash in the nix file
-    ${sed} -i "s/sha256 = \"[^\"]*\"/sha256 = \"$new_hash\"/" "$PACKAGE_NIX"
+    # Fetch and update hashes for each platform
+    for i in "''${!PLATFORMS[@]}"; do
+      platform="''${PLATFORMS[$i]}"
+      nix_system="''${NIX_SYSTEMS[$i]}"
+      green "Fetching hash for $platform..."
+      new_hash=$(fetch_platform_hash "$latest_version" "$platform")
+      if [ -z "$new_hash" ]; then
+        die "Failed to fetch tarball hash for $platform version $latest_version" 1
+      fi
+      green "  $platform: $new_hash"
+
+      # Update the hash for this platform using python for reliability
+      ${pkgs.python3}/bin/python3 -c "
+import re, sys
+with open('$PACKAGE_NIX', 'r') as f:
+    content = f.read()
+# Find the block for this nix system and update its sha256
+pattern = r'(\"$nix_system\"\s*=\s*\{[^}]*sha256\s*=\s*\")[^\"]*(\";)'
+content = re.sub(pattern, r'\g<1>$new_hash\2', content)
+with open('$PACKAGE_NIX', 'w') as f:
+    f.write(content)
+"
+    done
 
     green "Updated $PACKAGE_NIX to version $latest_version"
 
