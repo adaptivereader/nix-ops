@@ -31,7 +31,7 @@ let
 
   src = fetchurl {
     url = "https://registry.npmjs.org/@anthropic-ai/claude-code-${platform.npmPlatform}/-/claude-code-${platform.npmPlatform}-${version}.tgz";
-    sha256 = platform.sha256;
+    inherit (platform) sha256;
   };
 in
 stdenv.mkDerivation {
