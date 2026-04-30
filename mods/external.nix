@@ -12,7 +12,6 @@ in
     name = "adaptivereader";
     paths = (final.lib.flatten (attrValues j)) ++ (attrValues final.custom) ++
     (with final; [
-      codex
       codex-latest
       gh
       git
