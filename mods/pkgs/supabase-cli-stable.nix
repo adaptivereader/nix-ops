@@ -9,19 +9,19 @@
 
 buildGoModule rec {
   pname = "supabase-cli-stable";
-  version = "2.102.0";
+  version = "2.104.0";
 
   src = fetchFromGitHub {
     owner = "supabase";
     repo = "cli";
     rev = "v${version}";
-    hash = "sha256-vJCAem5qAiF9H2xYe8r1lE56W4k60VgNFcTFPY9xP9I=";
+    hash = "sha256-CuU5CsvTVMkWcmvC40qjGpkFkR+Vr442FVoXBH9J4vs=";
   };
 
   # Upstream moved the Go CLI into a monorepo subdirectory at v2.101.0.
   sourceRoot = "${src.name}/apps/cli-go";
 
-  vendorHash = "sha256-O+dFhk+JLKs+hqxh/6VHDTxZ/TBUl4LBGEuFBHgAyS8=";
+  vendorHash = "sha256-xoZG+qbteOK4/V0HduSp9fCI2RH6IkyFnpBRS6ni70Y=";
 
   subPackages = [ "." ];
 
