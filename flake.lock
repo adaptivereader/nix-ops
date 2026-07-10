@@ -259,11 +259,11 @@
         "pog": "pog"
       },
       "locked": {
-        "lastModified": 1783473636,
-        "narHash": "sha256-+Tga3p+70FuVA9w4DTxsqMvQPoYonGCYCxPFgkRb4vA=",
+        "lastModified": 1783560514,
+        "narHash": "sha256-N+jRY4a1ETqA+SjUhoFZv6jQXB+6V7hIdeiLgf6yrKU=",
         "owner": "jpetrucciani",
         "repo": "hex",
-        "rev": "9d6e9605f876e0ae2514958166df9d7ba8789bfb",
+        "rev": "d2f49c2fee2fa2dfa38a5266010719e913e07344",
         "type": "github"
       },
       "original": {
@@ -302,11 +302,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1783458499,
-        "narHash": "sha256-a8whUXG4ThsZNjL92cH4wbl+/dt8CbT/F0zJsfhzFbM=",
+        "lastModified": 1783550008,
+        "narHash": "sha256-qbbZUk9IG9dLNwCPwdPBs6I5clxwugRpP+1YU+GPK20=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "53ebbdc405acc04acd9bb73ccca462b51ddb8c6d",
+        "rev": "f4d01c1d87c7c2ec909549165d5a8338f1bd3315",
         "type": "github"
       },
       "original": {
@@ -356,11 +356,11 @@
         "vscode-server": "vscode-server"
       },
       "locked": {
-        "lastModified": 1783513141,
-        "narHash": "sha256-GK27JYkC/Adjve0EdJjXat8JB3kZ4sNd71SFlx5Ht6E=",
+        "lastModified": 1783631021,
+        "narHash": "sha256-N+vgva5weZxA+hSjFPmk4c5agjNmm4EAALGCPzbNgLo=",
         "owner": "jpetrucciani",
         "repo": "nix",
-        "rev": "edeb687c24573e25319c26c3c44c297484be1995",
+        "rev": "319dfad71f4db717199579036d16e9d2d2497a5c",
         "type": "github"
       },
       "original": {
@@ -380,11 +380,11 @@
         "nixvim": "nixvim"
       },
       "locked": {
-        "lastModified": 1783544958,
-        "narHash": "sha256-86UlCXPvV8G/wvnddNSPcbFJd5/LeZCfAy/2bdaY0Js=",
+        "lastModified": 1783633539,
+        "narHash": "sha256-ygdh6jLY3KrIbxQdeTSGDhbml/tm7jHxZ+qs/R7ayBk=",
         "ref": "refs/heads/main",
-        "rev": "b4dc41232717fbcfb055f07fc72b4b52ba88229e",
-        "revCount": 4432,
+        "rev": "dbd34652947c586593e1f5ad66d9fde179868a87",
+        "revCount": 4438,
         "submodules": true,
         "type": "git",
         "url": "https://github.com/kwbauson/cfg"
@@ -671,11 +671,11 @@
     },
     "nixpkgs_6": {
       "locked": {
-        "lastModified": 1783441933,
-        "narHash": "sha256-tTf5FZls0QCEeVizzwTddjNvrXOQB9hfz8g9wY6URVk=",
-        "rev": "409298523758f00a3d7b36c90499011a9f180494",
+        "lastModified": 1783522079,
+        "narHash": "sha256-esY8Y5zEnqfTbhhWh8abFTviLCjIxE8N9mkx0R5mUxI=",
+        "rev": "1e94a0307f544377e2f2332daa7fca2833a1adc3",
         "type": "tarball",
-        "url": "https://releases.nixos.org/nixos/unstable-small/nixos-26.11pre1028949.409298523758/nixexprs.tar.xz"
+        "url": "https://releases.nixos.org/nixos/unstable-small/nixos-26.11pre1031291.1e94a0307f54/nixexprs.tar.xz"
       },
       "original": {
         "id": "nixpkgs",
@@ -1067,11 +1067,11 @@
         "pyproject-nix": "pyproject-nix_2"
       },
       "locked": {
-        "lastModified": 1783307743,
-        "narHash": "sha256-oseisp2tblvzYZdojkA5URLnMjrpPiemzr5T7BdUyuU=",
+        "lastModified": 1783511944,
+        "narHash": "sha256-Z/Ss9rWw9QYcRK+Qqkmty7PB1pIik5XGbrtit+ad2qs=",
         "owner": "adisbladis",
         "repo": "uv2nix",
-        "rev": "288b0a580ede39d3d7f96e3d835f9df0a7080223",
+        "rev": "83995ef5e4ece3c9c704aa645bbff439e15a0ac3",
         "type": "github"
       },
       "original": {
