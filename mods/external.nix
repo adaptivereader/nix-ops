@@ -6,13 +6,13 @@ let
   };
 in
 {
-  inherit (final.jacobi) pog __pg __pg_bootstrap __pg_shell;
+  inherit (final.jacobi) codex-latest pog __pg __pg_bootstrap __pg_shell;
   inherit (final.kwbauson) better-comma;
   adaptivereader = final.buildEnv {
     name = "adaptivereader";
     paths = (final.lib.flatten (attrValues j)) ++ (attrValues final.custom) ++
     (with final; [
-      codex
+      codex-latest
       gh
       git
       gnused
