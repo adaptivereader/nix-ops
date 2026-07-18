@@ -1,80 +1,59 @@
-# Inspired by https://github.com/sadjow/claude-code-nix
 { lib
 , stdenv
 , fetchurl
-, nodejs_22
-, cacert
-
+, autoPatchelfHook
 }:
 
 let
-  version = "2.1.81";
+  version = "2.1.212";
 
-  claudeCodeTarball = fetchurl {
-    url = "https://registry.npmjs.org/@anthropic-ai/claude-code/-/claude-code-${version}.tgz";
-    sha256 = "0bsvqj5pijbkihq8qr07hm2jdhmjy2pi55sm1ciad50s4ikwqnl7";
+  platformMap = {
+    "aarch64-darwin" = {
+      npmPlatform = "darwin-arm64";
+      sha256 = "1k40h332bjqg3x4y5hfmv8nkfxj4x9x2m4g4d4srpdsb6x8c5ygl";
+    };
+    "x86_64-darwin" = {
+      npmPlatform = "darwin-x64";
+      sha256 = "13l4wjajnmq2bffif293hb10765x81knqx5nl17al96gy1sdm7r5";
+    };
+    "x86_64-linux" = {
+      npmPlatform = "linux-x64";
+      sha256 = "1z0wl14j24n07sh8hc916bzz8mnww4jl58zzvifai5fcibq4xi78";
+    };
+    "aarch64-linux" = {
+      npmPlatform = "linux-arm64";
+      sha256 = "1y6v23ls100fbbx7bskwv5jxw11bz0jhwic77hchmqizxnmsv8aa";
+    };
+  };
+
+  platform = platformMap.${stdenv.hostPlatform.system}
+    or (throw "Unsupported system: ${stdenv.hostPlatform.system}");
+
+  src = fetchurl {
+    url = "https://registry.npmjs.org/@anthropic-ai/claude-code-${platform.npmPlatform}/-/claude-code-${platform.npmPlatform}-${version}.tgz";
+    inherit (platform) sha256;
   };
 in
 stdenv.mkDerivation {
   pname = "claude-code-latest";
-  inherit version;
+  inherit version src;
 
-  src = claudeCodeTarball;
+  sourceRoot = "package";
 
-  nativeBuildInputs = [ nodejs_22 ];
-  buildInputs = [ nodejs_22 cacert ];
-
-  dontUnpack = true;
-  dontPatchShebangs = true;
+  nativeBuildInputs = lib.optionals stdenv.hostPlatform.isLinux [ autoPatchelfHook ];
 
   installPhase = ''
-        runHook preInstall
-
-        export HOME=$TMPDIR
-        export npm_config_cache=$TMPDIR/.npm
-        export SSL_CERT_FILE=${cacert}/etc/ssl/certs/ca-bundle.crt
-
-        mkdir -p $out/lib/node_modules
-        mkdir -p $out/bin
-
-        # Install claude-code from pre-fetched tarball
-        ${nodejs_22}/bin/npm install \
-          --global \
-          --prefix $out \
-          --offline \
-          --ignore-scripts \
-          --no-audit \
-          --no-fund \
-          ${claudeCodeTarball}
-
-        # Remove the symlink created by npm and create our own wrapper
-        rm -f $out/bin/claude
-
-        # Create wrapper script that uses bundled Node.js
-        cat > $out/bin/claude << 'WRAPPER'
-    #!/usr/bin/env bash
-    export NODE_PATH="@out@/lib/node_modules"
-    export SSL_CERT_FILE="@cacert@/etc/ssl/certs/ca-bundle.crt"
-    export DISABLE_AUTOUPDATER=1
-    unset DEV
-    exec "@node@" "@out@/lib/node_modules/@anthropic-ai/claude-code/cli.js" "$@"
-    WRAPPER
-
-        substituteInPlace $out/bin/claude \
-          --replace-fail "@out@" "$out" \
-          --replace-fail "@cacert@" "${cacert}" \
-          --replace-fail "@node@" "${nodejs_22}/bin/node"
-
-        chmod +x $out/bin/claude
-
-        runHook postInstall
+    runHook preInstall
+    mkdir -p $out/bin
+    install -m755 claude $out/bin/claude
+    runHook postInstall
   '';
 
   meta = with lib; {
     description = "Claude Code CLI - AI-powered coding assistant by Anthropic";
     homepage = "https://github.com/anthropics/claude-code";
     license = licenses.unfree;
-    platforms = platforms.all;
+    platforms = [ "aarch64-darwin" "x86_64-darwin" "x86_64-linux" "aarch64-linux" ];
     mainProgram = "claude";
   };
 }
