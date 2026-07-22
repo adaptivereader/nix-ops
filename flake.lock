@@ -380,11 +380,11 @@
         "nixvim": "nixvim"
       },
       "locked": {
-        "lastModified": 1784592038,
-        "narHash": "sha256-TGwKPGSKZfOp3wupp4pZLzt3Wnz/J2KFyxft+cdr/dY=",
+        "lastModified": 1784647160,
+        "narHash": "sha256-akYuXX59p+NOP+ZwDZUMCynsdTqVOln840Ti4vmkczw=",
         "ref": "refs/heads/main",
-        "rev": "15f64864e7abc30730dce1e7f625978b3affdc2d",
-        "revCount": 4471,
+        "rev": "ed47d79d4c222768eee754890464d825e4d42969",
+        "revCount": 4472,
         "submodules": true,
         "type": "git",
         "url": "https://github.com/kwbauson/cfg"
