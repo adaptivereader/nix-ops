@@ -5,24 +5,24 @@
 }:
 
 let
-  version = "2.1.228";
+  version = "2.1.229";
 
   platformMap = {
     "aarch64-darwin" = {
       npmPlatform = "darwin-arm64";
-      sha256 = "1z7s3xz9rnm8zsw4q1dr8jd6j533w8w5rqxp7ycfwq9zpw1rvkkx";
+      sha256 = "0ngvhv2lr5599qq1d3j51acgl8lai9nd727wsa2ya60z4c1k5gyq";
     };
     "x86_64-darwin" = {
       npmPlatform = "darwin-x64";
-      sha256 = "0wvxf6pmxd7whmlahf05n0s2lnhicbx4c6h1jfwz6bmx091wq7bc";
+      sha256 = "0jsywwqz2xd90032jqvvald49cx89xv13w9xkh9sqwhw992vs341";
     };
     "x86_64-linux" = {
       npmPlatform = "linux-x64";
-      sha256 = "1n1zvsnvyrdd97cbk069cw6ic1iwl72pdnwdp3z2wgkmv7d4wc0c";
+      sha256 = "1xj7ypa2mdv48kqvnvhskhnsaksiyy85pzxm60ckbpramw8bn11m";
     };
     "aarch64-linux" = {
       npmPlatform = "linux-arm64";
-      sha256 = "09vy1n6aa5kdqq554c1hs6s7yijp4yc4d2wah4dmn8zgi8qmla9i";
+      sha256 = "10cpg5ixy8xmsws353klnang3n6w8qnsjqqv5kf2p4b71pid31hn";
     };
   };
 
