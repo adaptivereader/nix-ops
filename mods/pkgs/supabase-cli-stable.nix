@@ -54,6 +54,11 @@ stdenv.mkDerivation {
 
     install -Dm755 supabase supabase-go -t $out/bin
 
+    ${lib.optionalString stdenv.hostPlatform.isLinux ''
+      # Completions execute the CLI before the normal fixup phase runs.
+      autoPatchelf $out/bin/supabase
+    ''}
+
     installShellCompletion --cmd supabase \
       --bash <($out/bin/supabase completion bash) \
       --fish <($out/bin/supabase completion fish) \
