@@ -17,9 +17,18 @@ jobs:
           extra_nix_config: |
             extra-trusted-public-keys = adaptivereader.cachix.org-1:AoiyYyEjcXjS0Ci77VIubWfUKOusjweA7S43UYkC/sw= cache.g7c.us:dSWpE2B5zK/Fahd7npIQWM4izRnVL+a4LiCAnrjdoFY=
             extra-substituters = https://adaptivereader.cachix.org https://cache.g7c.us
-      - uses: cachix/cachix-action@master
+      - uses: cachix/cachix-action@v17
         if: github.ref == 'refs/heads/main' || contains(github.ref, 'updates-nix')
         with:
           name: adaptivereader
           authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
+          skipPush: true
       - run: nix --show-trace build .#adaptivereader
+      # Push the complete runtime closure explicitly. Cachix's daemon mode only
+      # sees locally built paths, so dependencies substituted from cache.g7c.us
+      # (including codex-latest) would otherwise not be mirrored here.
+      - name: Push complete runtime closure
+        if: github.ref == 'refs/heads/main' || contains(github.ref, 'updates-nix')
+        env:
+          CACHIX_AUTH_TOKEN: ${{ secrets.CACHIX_AUTH_TOKEN }}
+        run: cachix push adaptivereader result
