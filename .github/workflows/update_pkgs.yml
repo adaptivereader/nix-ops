@@ -7,7 +7,7 @@ jobs:
       matrix:
         attrs:
           - attr: supabase-cli-stable
-            cmd: nupdate_latest_github -- --owner supabase --repo cli
+            cmd: nupdate_supabase_cli
           - attr: claude-code-latest
             cmd: nupdate_claude_code
     runs-on: ubuntu-24.04
