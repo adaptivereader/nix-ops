@@ -3,6 +3,7 @@
 let
   curl = "${pkgs.curl}/bin/curl";
   jq = "${pkgs.jq}/bin/jq";
+  nix = "${pkgs.nix}/bin/nix";
   nix-prefetch-url = "${pkgs.nix}/bin/nix-prefetch-url";
   sed = "${pkgs.gnused}/bin/sed";
 in
@@ -43,10 +44,11 @@ pog {
       url="https://github.com/supabase/cli/releases/download/v''${latest_version}/$archive"
 
       green "Fetching hash for $nix_system ($archive)..."
-      new_hash=$(${nix-prefetch-url} "$url" 2>/dev/null | tail -1)
-      if [ -z "$new_hash" ]; then
+      nix32_hash=$(${nix-prefetch-url} "$url" 2>/dev/null | tail -1)
+      if [ -z "$nix32_hash" ]; then
         die "Failed to fetch $url" 1
       fi
+      new_hash=$(${nix} hash convert --hash-algo sha256 --from nix32 --to sri "$nix32_hash")
 
       ${sed} -i "/\"$nix_system\" = {/,/};/ s|hash = [^;]*;|hash = \"$new_hash\";|" "$PACKAGE_NIX"
     done

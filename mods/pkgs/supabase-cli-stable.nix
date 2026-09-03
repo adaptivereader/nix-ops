@@ -13,19 +13,19 @@ let
   platformMap = {
     "aarch64-darwin" = {
       releaseTarget = "darwin_arm64";
-      hash = "10ss31d23mdibcqhmwpdpvyaxc18kmcjcv0cxjf9hb5hsxah8xcb";
+      hash = "sha256-i3UEVdewLJic7AxsJlmdKLCu/L7t8goxW7HVIVoYWoM=";
     };
     "x86_64-darwin" = {
       releaseTarget = "darwin_amd64";
-      hash = "1664szqymd5xaiphv0r7gzylbr4712b1fik226957fig49kcw78y";
+      hash = "sha256-Hh3OZiIvulOSEWJGF5YIh+RF/X8ngw1vVL206vHXxJg=";
     };
     "x86_64-linux" = {
       releaseTarget = "linux_amd64";
-      hash = "0n6irxdda1qvp39j3hiffbn60i15ab4f9162widv4lbx575k2c2v";
+      hash = "sha256-WzAxyyl9UbJb5MKE5MhSJURg7HIuwiHTuBsH1VrP0Vg=";
     };
     "aarch64-linux" = {
       releaseTarget = "linux_arm64";
-      hash = "0cvr534d2bpc9a1da2vxrmb1khdd0l304jxllhb9fidqddslanh1";
+      hash = "sha256-AVpFdWu4RZcWpLRLAgYFrcEZVs19C9WCSuwu0cgoeTM=";
     };
   };
 
