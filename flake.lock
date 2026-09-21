@@ -356,11 +356,11 @@
         "vscode-server": "vscode-server"
       },
       "locked": {
-        "lastModified": 1789775254,
-        "narHash": "sha256-SYFCe17jAb3TPbDqfPfUUJhvY/fkZo3pQjy9InsDLZw=",
+        "lastModified": 1789950230,
+        "narHash": "sha256-lrqIkrqKzX4TFCx8nKv2CggfZV+0dRBQBxI8B4bT9W0=",
         "owner": "jpetrucciani",
         "repo": "nix",
-        "rev": "614d75351e0bb6211011385c8e5af2c8c6d2f497",
+        "rev": "5b2a582785a5664f78a9647fc950e882cd846e96",
         "type": "github"
       },
       "original": {
@@ -380,11 +380,11 @@
         "nixvim": "nixvim"
       },
       "locked": {
-        "lastModified": 1789139599,
-        "narHash": "sha256-qBdpz83OTgctppFZRkw3zrZzlLN6twAeISD/wsRDvew=",
+        "lastModified": 1789934246,
+        "narHash": "sha256-FQHCjt9BxjCe4VZzTBjvc37RkkkYgWCv8dp/nzMIsY8=",
         "ref": "refs/heads/main",
-        "rev": "ba81007314bb7d6e08a3fad8ae9c162dce60c9bd",
-        "revCount": 4485,
+        "rev": "8bdcfcd554d760c1c8d71d9da920b134897afb2d",
+        "revCount": 4486,
         "submodules": true,
         "type": "git",
         "url": "https://github.com/kwbauson/cfg"
