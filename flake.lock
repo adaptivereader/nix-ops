@@ -259,11 +259,11 @@
         "pog": "pog"
       },
       "locked": {
-        "lastModified": 1789689897,
-        "narHash": "sha256-Ai8PeG3eVGjyqjgPDkoYDkN/gM+0Cm6KCHq9yB1B85Q=",
+        "lastModified": 1790182187,
+        "narHash": "sha256-tH3nBAxM8Q+MaVa13tQ9Xinf6lkD4lvNgEpq8iZT6vs=",
         "owner": "jpetrucciani",
         "repo": "hex",
-        "rev": "3c6bcb7785e0fe0188f571ae8fa8494236c3382f",
+        "rev": "992bf68e75888529269204b8e46314efc88a54f2",
         "type": "github"
       },
       "original": {
@@ -356,11 +356,11 @@
         "vscode-server": "vscode-server"
       },
       "locked": {
-        "lastModified": 1790110387,
-        "narHash": "sha256-8zzGHw4LaWL7k2fe+65dRrN++wtvTtTNj7ppOxB2OR8=",
+        "lastModified": 1790182266,
+        "narHash": "sha256-Kwj0nfCDhMFFYebRKAYQfl83SAvJ5D5IlvwAaqhT45g=",
         "owner": "jpetrucciani",
         "repo": "nix",
-        "rev": "becc53e3685d37c4323f5583891b01421fa10f95",
+        "rev": "72acc6ff8c8c7b6df151e40b4e1b4214621f6291",
         "type": "github"
       },
       "original": {
@@ -380,11 +380,11 @@
         "nixvim": "nixvim"
       },
       "locked": {
-        "lastModified": 1789934246,
-        "narHash": "sha256-FQHCjt9BxjCe4VZzTBjvc37RkkkYgWCv8dp/nzMIsY8=",
+        "lastModified": 1790192845,
+        "narHash": "sha256-h+mYgcRf5lTnozj090VRm7PLXc1FV750g/nwmCgU7pI=",
         "ref": "refs/heads/main",
-        "rev": "8bdcfcd554d760c1c8d71d9da920b134897afb2d",
-        "revCount": 4486,
+        "rev": "75a75560213a602a301be0e05e9af187eaf426fa",
+        "revCount": 4487,
         "submodules": true,
         "type": "git",
         "url": "https://github.com/kwbauson/cfg"
