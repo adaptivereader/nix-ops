@@ -356,11 +356,11 @@
         "vscode-server": "vscode-server"
       },
       "locked": {
-        "lastModified": 1790434281,
-        "narHash": "sha256-IJOXLhdIJq7/pgWT6h1Z+45IQrcUT1QZVqEm0+BWiZk=",
+        "lastModified": 1790626305,
+        "narHash": "sha256-FhWBF4zCciocbWjMSOtbbyvdM7bSou+pMUwQAAik+pQ=",
         "owner": "jpetrucciani",
         "repo": "nix",
-        "rev": "d098b50543feff38e618e03cb9480abbc2735644",
+        "rev": "77965f87327299e19aaf1cb798880bb8ca5ebecf",
         "type": "github"
       },
       "original": {
@@ -598,11 +598,11 @@
     },
     "nixpkgs_11": {
       "locked": {
-        "lastModified": 1790463110,
-        "narHash": "sha256-VZHcT2wKLkApBCACQ2SH4P1jVZUbbOA7jWAGi1MIViw=",
-        "rev": "e158d9ed9b51c98974c5e66e1ba1c9e0255fecaa",
+        "lastModified": 1790578696,
+        "narHash": "sha256-EvoKOTtoIJ7Xflls2Nfo5WDcqjFJB0kuzwOz0nLWs0w=",
+        "rev": "7a0f122f5090cf4c2ade2a13a0e229d4e19ba71f",
         "type": "tarball",
-        "url": "https://releases.nixos.org/nixos/unstable/nixos-26.11pre1080189.e158d9ed9b51/nixexprs.tar.zst"
+        "url": "https://releases.nixos.org/nixos/unstable/nixos-26.11pre1080855.7a0f122f5090/nixexprs.tar.zst"
       },
       "original": {
         "id": "nixpkgs",
