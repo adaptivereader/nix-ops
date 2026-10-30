@@ -266,11 +266,11 @@
         "pog": "pog"
       },
       "locked": {
-        "lastModified": 1792541261,
-        "narHash": "sha256-f9Ew2O5KvwxjZBr6FSQlpRQ369Q2XCgoLQhyq3UoJqE=",
+        "lastModified": 1793232361,
+        "narHash": "sha256-mweCV8bTXCn/3aCmV4iAlnDmhvy/xgCMRAQaWuTcXAk=",
         "owner": "jpetrucciani",
         "repo": "hex",
-        "rev": "bfd7c1a03d4cde913382d197ebf26d2c3e54abde",
+        "rev": "86080b78f3b6274f88d58fdc0e243db0cb1b78ae",
         "type": "github"
       },
       "original": {
@@ -364,11 +364,11 @@
         "vscode-server": "vscode-server"
       },
       "locked": {
-        "lastModified": 1793211759,
-        "narHash": "sha256-T/IRhur3+sXJM07aABiCYzmGyLm4+E4g6hJ4wZVCbqQ=",
+        "lastModified": 1793307973,
+        "narHash": "sha256-TzwrRF68ukD60Rtz+VD1uE5v5ad1BvzxLQeMpJ+revc=",
         "owner": "jpetrucciani",
         "repo": "nix",
-        "rev": "39babe9e2682ef105601feb478ea0fdff0410b61",
+        "rev": "54f3d318c616da53f09ed0bc8ea92592daff0f48",
         "type": "github"
       },
       "original": {
