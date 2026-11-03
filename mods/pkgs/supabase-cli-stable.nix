@@ -52,7 +52,7 @@ stdenv.mkDerivation {
     export HOME="$TMPDIR/home"
     mkdir -p "$HOME"
 
-    install -Dm755 supabase supabase-go -t $out/bin
+    install -Dm755 supabase "$out/bin/supabase"
 
     ${lib.optionalString stdenv.hostPlatform.isLinux ''
       # Completions execute the CLI before the normal fixup phase runs.
