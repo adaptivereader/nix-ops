@@ -8,24 +8,24 @@
 }:
 
 let
-  version = "2.122.0";
+  version = "3.2.0";
 
   platformMap = {
     "aarch64-darwin" = {
       releaseTarget = "darwin_arm64";
-      hash = "sha256-/oel+XgdVCPb1eu6LVpuGlQdAXVNFJQcV0lS5WleqrA=";
+      hash = "sha256-yeJ82vhI8haHnfCjVPypbH5awNFSfZNLcw7GK6NIuG0=";
     };
     "x86_64-darwin" = {
       releaseTarget = "darwin_amd64";
-      hash = "sha256-i+fVuwAJHmdhjRL7CkobsQYkxpQ17NW5uV2R1XHMNNg=";
+      hash = "sha256-CwKsY9ZACz8jikQsPSqnLSl3s6Xc0/LmeQlaAEczEC4=";
     };
     "x86_64-linux" = {
       releaseTarget = "linux_amd64";
-      hash = "sha256-We0GaEe5jXRhxg6RCdQMq2uXVhd84G67BbUTOFGfUTY=";
+      hash = "sha256-+4ixdagXVjUFvgLGCHIGC8uNXIaaGqVlbq6whdSi8eQ=";
     };
     "aarch64-linux" = {
       releaseTarget = "linux_arm64";
-      hash = "sha256-iYC0YESroIY/JqG0E0pJjSx03w2t8kKJu0+qhnKVEcw=";
+      hash = "sha256-zZtLbFsExvtoyL9rNaftKSS2ZxzaJjYT/Ypyc7n6Fns=";
     };
   };
 
@@ -52,7 +52,7 @@ stdenv.mkDerivation {
     export HOME="$TMPDIR/home"
     mkdir -p "$HOME"
 
-    install -Dm755 supabase supabase-go -t $out/bin
+    install -Dm755 supabase "$out/bin/supabase"
 
     ${lib.optionalString stdenv.hostPlatform.isLinux ''
       # Completions execute the CLI before the normal fixup phase runs.
